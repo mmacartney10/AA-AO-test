@@ -4,13 +4,7 @@ import {
   StackNavigationProp,
 } from "@react-navigation/stack";
 
-import Address from "@/screens/Address";
-import Email from "@/screens/Email";
-import Employment from "@/screens/Employment";
-import End from "@/screens/End";
-import Error from "@/screens/Error";
-import Name from "@/screens/Name";
-import Start from "@/screens/Start";
+import { Address, Email, Employment, End, Name, Start, Error } from "@/screens";
 
 export type AccountNavigatorParams = {
   Start: undefined;

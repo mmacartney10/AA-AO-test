@@ -8,21 +8,21 @@ import { Journey } from "@/types";
 type StartScreenProps = AccountNavigatorScreenProps<"Start">;
 
 const Start = ({ navigation }: StartScreenProps) => {
-  const { setJourney, schemaNavigation } = useAccountStore();
+  const { setJourney, accountNavigation } = useAccountStore();
 
   const nextPage = (journey: Journey) => {
     setJourney(journey);
   };
 
   useEffect(() => {
-    if (!schemaNavigation) {
+    if (!accountNavigation) {
       return;
     }
 
-    const nextRoute = schemaNavigation[0].routeName;
+    const nextRoute = accountNavigation[0].routeName;
     navigation.navigate(nextRoute);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [schemaNavigation]);
+  }, [accountNavigation]);
 
   return (
     <View>

@@ -1,8 +1,7 @@
 import { InferType, object } from "yup";
 
-import { SchemaNavigation } from "@/types";
-import addressSchema from "./shared/addressSchema";
-import employmentSchema from "./shared/employmentSchema";
+import { AccountNavigation } from "@/types";
+import { addressSchema, employmentSchema } from "@/screens/schema";
 
 const createAddAnAccountSchema = () => {
   return object().shape({
@@ -36,7 +35,7 @@ export const addAnAccountDefaultState: AddAnAccountSchema = {
   },
 };
 
-export const addAnAccountNavigation: SchemaNavigation[] = [
+export const addAnAccountNavigation: AccountNavigation[] = [
   {
     routeName: "Address",
     step: 1,

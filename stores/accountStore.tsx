@@ -35,7 +35,7 @@ export const useAccountStore = () => {
     }
   };
 
-  const getSchemaNavigation = (journey: Journey | null) => {
+  const getAccountNavigation = (journey: Journey | null) => {
     switch (journey) {
       case "AA":
         return addAnAccountNavigation;
@@ -56,7 +56,7 @@ export const useAccountStore = () => {
   } = context;
 
   const accountForm = getAccountForm(journey);
-  const schemaNavigation = getSchemaNavigation(journey);
+  const accountNavigation = getAccountNavigation(journey);
 
   return {
     accountForm,
@@ -64,6 +64,6 @@ export const useAccountStore = () => {
     resetAllForms,
     setJourney,
     journey,
-    schemaNavigation,
+    accountNavigation,
   };
 };
