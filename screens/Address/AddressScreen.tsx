@@ -25,11 +25,31 @@ const Address = ({ navigation, route }: AddressScreenProps) => {
       <Text>{journey}</Text>
       <RNTextInput
         control={accountForm.control as any}
-        name="email.emailAddress"
+        name="address.addressLine1"
       />
       <RNTextInput
         control={accountForm.control as any}
-        name="email.confirmation"
+        name="address.addressLine2"
+      />
+      <RNTextInput
+        control={accountForm.control as any}
+        name="address.addressLine3"
+      />
+      <RNTextInput
+        control={accountForm.control as any}
+        name="address.addressLine4"
+      />
+      <RNTextInput
+        control={accountForm.control as any}
+        name="address.addressLine5"
+      />
+      <RNTextInput
+        control={accountForm.control as any}
+        name="address.countryIso"
+      />
+      <RNTextInput
+        control={accountForm.control as any}
+        name="address.postcode"
       />
       <Button onPress={accountForm.handleSubmit(nextStep)} title="Next" />
     </View>

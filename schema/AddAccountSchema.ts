@@ -16,25 +16,6 @@ export type AddAnAccountSchema = InferType<
   ReturnType<typeof createAddAnAccountSchema>
 >;
 
-export const addAnAccountDefaultState: AddAnAccountSchema = {
-  address: {
-    addressLine1: "",
-    addressLine2: "",
-    addressLine3: "",
-    addressLine4: "",
-    addressLine5: "",
-    countryIso: "",
-    postcode: "",
-  },
-  employment: {
-    status: "",
-    businessName: "",
-    currentEmployer: "",
-    institutionName: "",
-    occupation: "",
-  },
-};
-
 export const addAnAccountNavigation: AccountNavigation[] = [
   {
     routeName: "Address",

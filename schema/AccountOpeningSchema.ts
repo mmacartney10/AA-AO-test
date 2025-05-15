@@ -24,34 +24,6 @@ export type AccountOpeningSchema = InferType<
   ReturnType<typeof createAccountOpeningSchema>
 >;
 
-export const accountOpeningDefaultState: AccountOpeningSchema = {
-  email: {
-    confirmation: "",
-    emailAddress: "",
-  },
-  name: {
-    firstName: "",
-    lastName: "",
-    title: "Mr",
-  },
-  address: {
-    addressLine1: "",
-    addressLine2: "",
-    addressLine3: "",
-    addressLine4: "",
-    addressLine5: "",
-    countryIso: "",
-    postcode: "",
-  },
-  employment: {
-    status: "",
-    businessName: "",
-    currentEmployer: "",
-    institutionName: "",
-    occupation: "",
-  },
-};
-
 export const accountOpeningNavigation: AccountNavigation[] = [
   {
     routeName: "Name",

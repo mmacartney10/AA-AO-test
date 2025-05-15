@@ -1,14 +1,17 @@
 import { useForm } from "react-hook-form";
 
 import {
+  SippAccountSchema,
+  sippAccountNavigation,
+} from "@/schema/SippAccountSchema";
+
+import {
   AccountOpeningSchema,
-  accountOpeningDefaultState,
   accountOpeningNavigation,
 } from "@/schema/AccountOpeningSchema";
 
 import {
   AddAnAccountSchema,
-  addAnAccountDefaultState,
   addAnAccountNavigation,
 } from "@/schema/AddAccountSchema";
 import { Journey } from "@/types";
@@ -17,19 +20,19 @@ import { useState } from "react";
 const useCreateAccountStore = () => {
   const [journey, setJourney] = useState<Journey | null>(null);
 
-  const accountOpeningForm = useForm<AccountOpeningSchema>({
-    defaultValues: accountOpeningDefaultState,
-  });
+  const sippAccountForm = useForm<SippAccountSchema>();
 
-  const addAnAccountForm = useForm<AddAnAccountSchema>({
-    defaultValues: addAnAccountDefaultState,
-  });
+  const accountOpeningForm = useForm<AccountOpeningSchema>();
+
+  const addAnAccountForm = useForm<AddAnAccountSchema>();
 
   const formId = "account-opening";
 
   const resetAllForms = () => {
     accountOpeningForm.reset();
     addAnAccountForm.reset();
+    sippAccountForm.reset();
+    setJourney(null);
   };
 
   return {
@@ -37,8 +40,10 @@ const useCreateAccountStore = () => {
     setJourney,
     accountOpeningForm,
     addAnAccountForm,
+    sippAccountForm,
     accountOpeningNavigation,
     addAnAccountNavigation,
+    sippAccountNavigation,
     resetAllForms,
     formId,
   };

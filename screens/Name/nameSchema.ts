@@ -17,13 +17,16 @@ type PersonalTitle =
 const nameSchema = object().shape({
   title: mixed<PersonalTitle>()
     .required("Please select a title")
-    .label("Title"),
+    .label("Title")
+    .default("Mr"),
   firstName: string()
     .label("FirstName")
-    .required("Please enter your child's legal first name"),
+    .required("Please enter your child's legal first name")
+    .default(""),
   lastName: string()
     .label("Surname")
-    .required("Please enter your child's legal surname"),
+    .required("Please enter your child's legal surname")
+    .default(""),
 });
 
 export default nameSchema;

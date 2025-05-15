@@ -17,6 +17,7 @@ export declare type EmploymentStatus =
 const employmentSchema = object().shape({
   status: string()
     .required("Please choose an option")
+    .default("")
     .label("Employment status"),
   occupation: string().when("status", ([employmentStatus], schema) => {
     const requiredFor: EmploymentStatus[] = [
@@ -27,7 +28,7 @@ const employmentSchema = object().shape({
       "RETIRED",
     ];
     if (requiredFor.includes(employmentStatus)) {
-      return schema.required("Please enter your occupation");
+      return schema.required("Please enter your occupation").default("");
     }
     return schema;
   }),
@@ -41,6 +42,7 @@ const employmentSchema = object().shape({
         string()
           .label("Current employer")
           .required("Please enter your current employer")
+          .default("")
       );
     }
     return schema;
@@ -51,6 +53,7 @@ const employmentSchema = object().shape({
         string()
           .label("Business name")
           .required("Please enter your business name")
+          .default("")
       );
     }
     return schema;
@@ -61,6 +64,7 @@ const employmentSchema = object().shape({
         string()
           .label("Institution name")
           .required("Please enter your institution name")
+          .default("")
       );
     }
     return schema;

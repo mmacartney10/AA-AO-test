@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { Button, Text, View } from "react-native";
 
@@ -8,7 +9,7 @@ import { Journey } from "@/types";
 type StartScreenProps = AccountNavigatorScreenProps<"Start">;
 
 const Start = ({ navigation }: StartScreenProps) => {
-  const { setJourney, accountNavigation } = useAccountStore();
+  const { setJourney, accountNavigation, resetAllForms } = useAccountStore();
 
   const nextPage = (journey: Journey) => {
     setJourney(journey);
@@ -21,14 +22,22 @@ const Start = ({ navigation }: StartScreenProps) => {
 
     const nextRoute = accountNavigation[0].routeName;
     navigation.navigate(nextRoute);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accountNavigation]);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", () => {
+      resetAllForms();
+    });
+
+    return unsubscribe;
+  }, []);
 
   return (
     <View>
       <Text>Start</Text>
       <Button onPress={() => nextPage("AA")} title="AA Journey" />
       <Button onPress={() => nextPage("AO")} title="AO Journey" />
+      <Button onPress={() => nextPage("SIPP")} title="SIPP Journey" />
     </View>
   );
 };

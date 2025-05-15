@@ -1,5 +1,5 @@
 import React, { createContext, ReactNode, useContext } from "react";
-
+import { sippAccountNavigation } from "@/schema/SippAccountSchema";
 import { accountOpeningNavigation } from "@/schema/AccountOpeningSchema";
 import { addAnAccountNavigation } from "@/schema/AddAccountSchema";
 import { Journey } from "@/types";
@@ -24,12 +24,24 @@ export const useAccountStore = () => {
     throw new Error("Account Opening Provider not setup!");
   }
 
+  const {
+    accountOpeningForm,
+    addAnAccountForm,
+    sippAccountForm,
+    formId,
+    journey,
+    resetAllForms,
+    setJourney,
+  } = context;
+
   const getAccountForm = (journey: Journey | null) => {
     switch (journey) {
       case "AA":
         return addAnAccountForm;
       case "AO":
         return accountOpeningForm;
+      case "SIPP":
+        return sippAccountForm;
       default:
         return null;
     }
@@ -41,19 +53,12 @@ export const useAccountStore = () => {
         return addAnAccountNavigation;
       case "AO":
         return accountOpeningNavigation;
+      case "SIPP":
+        return sippAccountNavigation;
       default:
         return null;
     }
   };
-
-  const {
-    accountOpeningForm,
-    addAnAccountForm,
-    formId,
-    journey,
-    resetAllForms,
-    setJourney,
-  } = context;
 
   const accountForm = getAccountForm(journey);
   const accountNavigation = getAccountNavigation(journey);

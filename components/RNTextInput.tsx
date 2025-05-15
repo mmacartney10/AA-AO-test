@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, TextInput, View } from "react-native";
 
-// import { FormValues } from "@/types";
 import { AccountOpeningSchema } from "@/schema/AccountOpeningSchema";
 import { AddAnAccountSchema } from "@/schema/AddAccountSchema";
 import { useController, UseControllerProps } from "react-hook-form";
