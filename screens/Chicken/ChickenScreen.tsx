@@ -2,18 +2,14 @@ import RNTextInput from "@/components/RNTextInput";
 import { useNextStep } from "@/hooks/useNextStep";
 import { AccountNavigatorScreenProps } from "@/navigation/AccountNavigation";
 import { useAccountStore } from "@/stores/accountStore";
-import React, { useCallback } from "react";
+import React from "react";
 import { Button, Text, View } from "react-native";
 
 type AddressScreenProps = AccountNavigatorScreenProps<"Chicken">;
 
-const Chicken = ({ navigation, route }: AddressScreenProps) => {
+const Chicken = ({ route }: AddressScreenProps) => {
   const { journey, accountForm } = useAccountStore();
-  const nextRoute = useNextStep();
-
-  const nextStep = useCallback(async () => {
-    navigation.navigate(nextRoute);
-  }, [navigation, nextRoute]);
+  const { nextStep } = useNextStep();
 
   if (!accountForm) {
     return null;

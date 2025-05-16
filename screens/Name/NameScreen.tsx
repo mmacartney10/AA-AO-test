@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Button, Text, View } from "react-native";
 
 import { AccountNavigatorScreenProps } from "@/navigation/AccountNavigation";
@@ -9,13 +9,9 @@ import { useNextStep } from "@/hooks/useNextStep";
 
 type NameScreenProps = AccountNavigatorScreenProps<"Name">;
 
-const Name = ({ navigation, route }: NameScreenProps) => {
+const Name = ({ route }: NameScreenProps) => {
   const { journey, accountForm } = useAccountStore();
-  const nextRoute = useNextStep();
-
-  const nextStep = useCallback(async () => {
-    navigation.navigate(nextRoute);
-  }, [navigation, nextRoute]);
+  const { nextStep } = useNextStep();
 
   if (!accountForm) {
     return null;
