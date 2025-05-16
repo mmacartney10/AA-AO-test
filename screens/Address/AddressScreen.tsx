@@ -9,7 +9,7 @@ type AddressScreenProps = AccountNavigatorScreenProps<"Address">;
 
 const Address = ({ navigation, route }: AddressScreenProps) => {
   const { journey, accountForm } = useAccountStore();
-  const nextRoute = useNextStep("Address");
+  const nextRoute = useNextStep();
 
   const nextStep = useCallback(async () => {
     navigation.navigate(nextRoute);

@@ -1,11 +1,8 @@
 import React from "react";
 import { Text, TextInput, View } from "react-native";
 
-import { AccountOpeningSchema } from "@/schema/AccountOpeningSchema";
-import { AddAnAccountSchema } from "@/schema/AddAccountSchema";
 import { useController, UseControllerProps } from "react-hook-form";
-
-type FormValues = AddAnAccountSchema & AccountOpeningSchema;
+import { FormValues } from "@/schema/FormValues";
 
 const RNTextInput = (props: UseControllerProps<FormValues>) => {
   const { field } = useController<FormValues>(props);

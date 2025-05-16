@@ -1,8 +1,9 @@
-import { AccountScreenName } from "@/navigation/AccountNavigation";
+import { useRoute } from "@react-navigation/native";
 import { useAccountStore } from "@/stores/accountStore";
 
-export const useNextStep = (currentRoute: AccountScreenName) => {
+export const useNextStep = () => {
   const { accountNavigation } = useAccountStore();
+  const { name: currentRoute } = useRoute();
 
   if (!accountNavigation) {
     return "Error";

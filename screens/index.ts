@@ -5,5 +5,6 @@ import End from "./End/EndScreen";
 import Name from "./Name/NameScreen";
 import Start from "./Start/StartScreen";
 import Error from "./Error/ErrorScreen";
+import Chicken from "./Chicken/ChickenScreen";
 
-export { Address, Email, Employment, End, Error, Name, Start };
+export { Address, Email, Employment, End, Error, Name, Start, Chicken };

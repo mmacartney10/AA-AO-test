@@ -9,7 +9,7 @@ type EmploymentScreenProps = AccountNavigatorScreenProps<"Employment">;
 
 const Employment = ({ navigation, route }: EmploymentScreenProps) => {
   const { accountForm, journey } = useAccountStore();
-  const nextRoute = useNextStep("Employment");
+  const nextRoute = useNextStep();
 
   const nextStep = useCallback(async () => {
     navigation.navigate(nextRoute);

@@ -5,10 +5,10 @@ import { useAccountStore } from "@/stores/accountStore";
 import React, { useCallback } from "react";
 import { Button, Text, View } from "react-native";
 
-type EmailScreenProps = AccountNavigatorScreenProps<"Email">;
+type AddressScreenProps = AccountNavigatorScreenProps<"Chicken">;
 
-const Email = ({ navigation, route }: EmailScreenProps) => {
-  const { accountForm, journey } = useAccountStore();
+const Chicken = ({ navigation, route }: AddressScreenProps) => {
+  const { journey, accountForm } = useAccountStore();
   const nextRoute = useNextStep();
 
   const nextStep = useCallback(async () => {
@@ -25,15 +25,11 @@ const Email = ({ navigation, route }: EmailScreenProps) => {
       <Text>{journey}</Text>
       <RNTextInput
         control={accountForm.control as any}
-        name="email.emailAddress"
-      />
-      <RNTextInput
-        control={accountForm.control as any}
-        name="email.confirmation"
+        name="chicken.doYouLikeChicken"
       />
       <Button onPress={accountForm.handleSubmit(nextStep)} title="Next" />
     </View>
   );
 };
 
-export default Email;
+export default Chicken;

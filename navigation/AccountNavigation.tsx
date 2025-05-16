@@ -4,7 +4,16 @@ import {
   StackNavigationProp,
 } from "@react-navigation/stack";
 
-import { Address, Email, Employment, End, Name, Start, Error } from "@/screens";
+import {
+  Address,
+  Email,
+  Employment,
+  End,
+  Name,
+  Start,
+  Error,
+  Chicken,
+} from "@/screens";
 
 export type AccountNavigatorParams = {
   Start: undefined;
@@ -14,6 +23,7 @@ export type AccountNavigatorParams = {
   Employment: undefined;
   End: undefined;
   Error: undefined;
+  Chicken: undefined;
 };
 
 const Stack = createStackNavigator<AccountNavigatorParams>();
@@ -36,6 +46,7 @@ const AccountNavigation = () => {
       <Stack.Screen name="Email" component={Email} />
       <Stack.Screen name="Address" component={Address} />
       <Stack.Screen name="Employment" component={Employment} />
+      <Stack.Screen name="Chicken" component={Chicken} />
       <Stack.Screen name="End" component={End} />
       <Stack.Screen name="Error" component={Error} />
     </Stack.Navigator>

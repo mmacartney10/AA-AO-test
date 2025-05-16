@@ -11,7 +11,7 @@ type NameScreenProps = AccountNavigatorScreenProps<"Name">;
 
 const Name = ({ navigation, route }: NameScreenProps) => {
   const { journey, accountForm } = useAccountStore();
-  const nextRoute = useNextStep("Name");
+  const nextRoute = useNextStep();
 
   const nextStep = useCallback(async () => {
     navigation.navigate(nextRoute);
